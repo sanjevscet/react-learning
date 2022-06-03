@@ -18,6 +18,7 @@ export const NavComponent = () => {
                 </ul>
             </li>
             <li><Link to="/lazy">Lazy Component</Link></li>
+            <li><Link to="/memo">Use Memo Component</Link></li>
 
         </ol>
     )

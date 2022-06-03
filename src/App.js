@@ -13,6 +13,7 @@ import { AccountComponent } from './User/AccountComponent';
 import NotFoundComponent from './NotFoundComponent';
 import UserDeatilComponent from './User/UserDeatilComponent';
 import { lazy, Suspense } from 'react';
+import CounterComponent from './Hooks/CounterComponent';
 
 const LazyComponent = lazy(() => {
   // import("./CodeSplitting/LazyComponent") // with out delay
@@ -31,26 +32,27 @@ function App() {
 
       <div className='container'>
         <MyErrorBoundaryExample>
-            <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading...</div>}>
 
-          <Routes>
-            <Route path="/" element={<HomeComponent />} />
-            <Route path="/about" element={<AboutComponent />} />
-            <Route path="/contact" element={<ContactComponent />} />
-            <Route path="/error-boundry" element={<BuggyCounter />} />
-            <Route path="/user" element={<UserComponent />}>
-              <Route path="profile" element={<ProfileComponent />} />
-              <Route path="account" element={<AccountComponent />} />
-              <Route path=":userId" exact element={<UserDeatilComponent />} />
-            </Route>
+            <Routes>
+              <Route path="/" element={<HomeComponent />} />
+              <Route path="/about" element={<AboutComponent />} />
+              <Route path="/contact" element={<ContactComponent />} />
+              <Route path="/error-boundry" element={<BuggyCounter />} />
+              <Route path="/user" element={<UserComponent />}>
+                <Route path="profile" element={<ProfileComponent />} />
+                <Route path="account" element={<AccountComponent />} />
+                <Route path=":userId" exact element={<UserDeatilComponent />} />
+              </Route>
               <Route path="/lazy" element={<LazyComponent />} />
-            <Route path="*" element={<NotFoundComponent />} />
+              <Route path="/memo" element={<CounterComponent />} />
+              <Route path="*" element={<NotFoundComponent />} />
 
 
 
-          </Routes>
-            </Suspense>
-            </MyErrorBoundaryExample>
+            </Routes>
+          </Suspense>
+        </MyErrorBoundaryExample>
       </div>
       {/* <MyErrorBoundaryExample>
         <h1>Error Boundry Demo</h1>
