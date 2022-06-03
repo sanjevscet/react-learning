@@ -13,9 +13,12 @@ export const NavComponent = () => {
                 <ul>
                 <li><Link to="/user/account">Account</Link></li>
                 <li><Link to="/user/profile">Profile</Link></li>
+                <li><Link to="/user/123">User Details -Dynamic Routing (userId#123)</Link></li>
 
                 </ul>
             </li>
+            <li><Link to="/lazy">Lazy Component</Link></li>
+
         </ol>
     )
 }

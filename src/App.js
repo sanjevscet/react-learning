@@ -11,6 +11,18 @@ import UserComponent from './User/UserComponent';
 import ProfileComponent from './User/ProfileComponent';
 import { AccountComponent } from './User/AccountComponent';
 import NotFoundComponent from './NotFoundComponent';
+import UserDeatilComponent from './User/UserDeatilComponent';
+import { lazy, Suspense } from 'react';
+
+const LazyComponent = lazy(() => {
+  // import("./CodeSplitting/LazyComponent") // with out delay
+
+  // to add some delay 
+
+  return new Promise(resolve => {
+    setTimeout(() => resolve(import("./CodeSplitting/LazyComponent")), 1000)
+  });
+})
 
 function App() {
   return (
@@ -19,21 +31,26 @@ function App() {
 
       <div className='container'>
         <MyErrorBoundaryExample>
+            <Suspense fallback={<div>Loading...</div>}>
+
           <Routes>
             <Route path="/" element={<HomeComponent />} />
             <Route path="/about" element={<AboutComponent />} />
             <Route path="/contact" element={<ContactComponent />} />
             <Route path="/error-boundry" element={<BuggyCounter />} />
             <Route path="/user" element={<UserComponent />}>
-              <Route path="/user/profile" element={<ProfileComponent />} />
-              <Route path="/user/account" element={<AccountComponent />} />
+              <Route path="profile" element={<ProfileComponent />} />
+              <Route path="account" element={<AccountComponent />} />
+              <Route path=":userId" exact element={<UserDeatilComponent />} />
             </Route>
+              <Route path="/lazy" element={<LazyComponent />} />
             <Route path="*" element={<NotFoundComponent />} />
 
 
 
           </Routes>
-        </MyErrorBoundaryExample>
+            </Suspense>
+            </MyErrorBoundaryExample>
       </div>
       {/* <MyErrorBoundaryExample>
         <h1>Error Boundry Demo</h1>
