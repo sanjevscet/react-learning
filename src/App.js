@@ -14,6 +14,7 @@ import NotFoundComponent from './NotFoundComponent';
 import UserDeatilComponent from './User/UserDeatilComponent';
 import { lazy, Suspense } from 'react';
 import CounterComponent from './Hooks/CounterComponent';
+import UseCallBackDemoComponent from './Hooks/UseCallBackDemoComponent';
 
 const LazyComponent = lazy(() => {
   // import("./CodeSplitting/LazyComponent") // with out delay
@@ -46,6 +47,7 @@ function App() {
               </Route>
               <Route path="/lazy" element={<LazyComponent />} />
               <Route path="/memo" element={<CounterComponent />} />
+              <Route path="/callback" element={<UseCallBackDemoComponent />} />
               <Route path="*" element={<NotFoundComponent />} />
 
 

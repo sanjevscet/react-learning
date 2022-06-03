@@ -19,6 +19,7 @@ export const NavComponent = () => {
             </li>
             <li><Link to="/lazy">Lazy Component</Link></li>
             <li><Link to="/memo">Use Memo Component</Link></li>
+            <li><Link to="/callback">Use Callback Demo</Link></li>
 
         </ol>
     )
