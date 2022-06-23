@@ -16,6 +16,7 @@ import { lazy, Suspense } from 'react';
 import CounterComponent from './Hooks/CounterComponent';
 import UseCallBackDemoComponent from './Hooks/UseCallBackDemoComponent';
 import UseRefComponent from './UseRefComponent';
+import Hoc from './Hoc';
 
 const LazyComponent = lazy(() => {
   // import("./CodeSplitting/LazyComponent") // with out delay
@@ -50,6 +51,7 @@ function App() {
               <Route path="/memo" element={<CounterComponent />} />
               <Route path="/callback" element={<UseCallBackDemoComponent />} />
               <Route path="/ref" element={<UseRefComponent />} />
+              <Route path="/hoc" element={<Hoc />} />
               <Route path="*" element={<NotFoundComponent />} />
 
 
